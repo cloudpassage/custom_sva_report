@@ -1,5 +1,4 @@
 import os
-
 from halo.utility import Utility
 
 
@@ -33,18 +32,18 @@ class ConfigHelper(object):
         self.halo_api_auth_token = None
         self.output_directory = os.getenv("OUTPUT_DIRECTORY", "/tmp")
         self.halo_group_id = os.getenv("HALO_GROUP_ID", "HARDSTOP")
-        self.cve_nvd_link_base = os.getenv("CVE_NVD_LINK_BASE", "http://web.nvd.nist.gov/view/vuln/detail?vulnId=")
+        self.cve_nvd_link_base = "http://web.nvd.nist.gov/view/vuln/detail?vulnId="
         self.table_header_columns = ['OS Type', 'OS Name', 'OS Version', 'Hostname', 'Server Label', 'Reported FQDN',
-                    'Connecting IP Address', 'Primary IP Address', 'Connecting IP FQDN', 'CSP Type', 'CSP Instance ID',
-                    'CSP Account ID', 'CSP Image ID', 'CSP Kernel ID', 'CSP Private IP', 'CSP Instance Type', 'CSP Availability Zone',
-                    'CSP Region', 'CSP Security Groups', 'CSP Instance Tags', 'EC2 Instance ID', 'EC2 Account ID', 'EC2 Image ID',
-                    'EC2 Kernel ID', 'EC2 Private IP', 'EC2 Instance Type', 'EC2 Availability Zone', 'EC2 Region', 'EC2 Security Groups',
-                    'Server Status', 'Server Group Path', 'Last Scan Time', 'Package Name', 'Package Version', 'Criticality', 'CVE ID',
-                    'CVSS Base Score', 'CVSS v2 Attack Vector', 'CVSS v2 Access Complexity', 'CVSS v2 Authentication', 'CVSS v2 Confidentiality Impact',
-                    'CVSS v2 Integrity Impact', 'CVSS v2 Availability Impact', 'CVSS v3 Attack Vector', 'CVSS v3 Attack Complexity',
-                    'CVSS v3 User Interaction', 'CVSS v3 Confidentiality Impact', 'CVSS v3 Integrity Impact', 'CVSS v3 Availability Impact',
-                    'CVSS v3 Privileges Required', 'CVSS v3 Scope', 'CVSS v3 Base Severity', 'CVSS v3 Vector String', 'Remotely Exploitable',
-                    'CVE Description', 'CVE NVD Link', 'Vulnerability First Seen', 'Vulnerability Last Seen']
+                                     'Connecting IP Address', 'Primary IP Address', 'Connecting IP FQDN', 'CSP Type', 'CSP Instance ID',
+                                     'CSP Account ID', 'CSP Image ID', 'CSP Kernel ID', 'CSP Private IP', 'CSP Instance Type', 'CSP Availability Zone',
+                                     'CSP Region', 'CSP Security Groups', 'CSP Instance Tags', 'EC2 Instance ID', 'EC2 Account ID', 'EC2 Image ID',
+                                     'EC2 Kernel ID', 'EC2 Private IP', 'EC2 Instance Type', 'EC2 Availability Zone', 'EC2 Region', 'EC2 Security Groups',
+                                     'Server Status', 'Server Group Path', 'Last Scan Time', 'Package Name', 'Package Version', 'Criticality', 'CVE ID',
+                                     'CVSS Base Score', 'CVSS v2 Attack Vector', 'CVSS v2 Access Complexity', 'CVSS v2 Authentication', 'CVSS v2 Confidentiality Impact',
+                                     'CVSS v2 Integrity Impact', 'CVSS v2 Availability Impact', 'CVSS v3 Attack Vector', 'CVSS v3 Attack Complexity',
+                                     'CVSS v3 User Interaction', 'CVSS v3 Confidentiality Impact', 'CVSS v3 Integrity Impact', 'CVSS v3 Availability Impact',
+                                     'CVSS v3 Privileges Required', 'CVSS v3 Scope', 'CVSS v3 Base Severity', 'CVSS v3 Vector String', 'Remotely Exploitable',
+                                     'CVE Description', 'CVE NVD Link', 'Vulnerability First Seen', 'Vulnerability Last Seen']
 
     def sane(self):
         """

@@ -2,9 +2,7 @@ import base64
 import json
 import urllib.parse
 import urllib.request
-
 import cloudpassage
-
 from halo.utility import Utility
 
 
@@ -119,7 +117,7 @@ class HaloAPICaller(object):
             if 'expires_in' in auth_resp_obj:
                 self.expires = auth_resp_obj['expires_in']
         return self.halo_api_auth_token
-    
+
     def get_group_childs(self, group_id):
         url = "%s:%d/%s/groups?parent_id=%s" % (
             self.halo_api_hostname, self.halo_api_port, self.halo_api_version, group_id)
@@ -137,7 +135,7 @@ class HaloAPICaller(object):
             return json.loads(data), auth_error
         else:
             return None, auth_error
-    
+
     def get_group_servers_per_page(self, group_id, page):
         url = "%s:%d/%s/servers?group_id=%s&per_page=100&page=%s" % (
             self.halo_api_hostname, self.halo_api_port, self.halo_api_version, group_id, page)
@@ -147,7 +145,7 @@ class HaloAPICaller(object):
         else:
             return None, auth_error
 
-    def get_server_sva_scans(self, server_id):
+    def get_server_sva_scan_details(self, server_id):
         url = "%s:%d/%s/servers/%s/svm" % (
             self.halo_api_hostname, self.halo_api_port, self.halo_api_version, server_id)
         (data, auth_error) = self.do_get_request(url, self.halo_api_auth_token)
@@ -164,7 +162,7 @@ class HaloAPICaller(object):
             return json.loads(data), auth_error
         else:
             return None, auth_error
-    
+
     def get_issues_by_cve(self, cve, host_name):
         url = "%s:%d/v3/issues?type=sva&cve_id=%s&asset_hostname=%s" % (
             self.halo_api_hostname, self.halo_api_port, cve, host_name)

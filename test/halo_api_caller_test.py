@@ -1,3 +1,5 @@
+from halo import halo_api_caller
+from halo import config_helper
 import sys
 import os
 import math
@@ -5,10 +7,9 @@ import math
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from halo import config_helper
-from halo import halo_api_caller
 
 list_of_groups = []
+
 
 def test_get_group_servers(group_id):
     config = config_helper.ConfigHelper()
@@ -34,6 +35,7 @@ def test_get_group_childs(group_id, flag):
                 list_of_groups.append(group['id'])
                 test_get_group_childs(group['id'], False)
 
+
 def test_get_all_groups_servers(list_of_group_ids):
     total_servers_list = []
     config = config_helper.ConfigHelper()
@@ -41,7 +43,8 @@ def test_get_all_groups_servers(list_of_group_ids):
     halo_api_caller_obj.authenticate_client()
     if(len(list_of_group_ids) > 0):
         for group_id in list_of_group_ids:
-            group_servers_list = halo_api_caller_obj.get_group_servers(group_id)
+            group_servers_list = halo_api_caller_obj.get_group_servers(
+                group_id)
             group_servers_list_data = group_servers_list[0]
             try:
                 total_number_of_servers = group_servers_list_data['count']
@@ -55,6 +58,7 @@ def test_get_all_groups_servers(list_of_group_ids):
                 servers_list = page_group_servers_list[0]['servers']
                 total_servers_list.extend(servers_list)
     return total_servers_list
+
 
 if __name__ == "__main__":
     test_get_group_childs("67b04036a8c411e9a8b62930f061b45d", True)
