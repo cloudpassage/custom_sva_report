@@ -1,9 +1,8 @@
-import csv
 from datetime import datetime
 from halo.utility import Utility
 
 
-class JSONToCSV(object):
+class CSVOperations(object):
 
     def prepare_csv_file(self, output_directory):
         # Preparing CSV file for writing
